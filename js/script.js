@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let gridValues = Array.from(Array(gridHeight), () => new Array(gridWidth).fill(0));
 
     // read data from file to populate grid
-    fetch('noah.txt').then(response => {
+    fetch('txt/noah.txt').then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok ' + response.statusText);
         }
