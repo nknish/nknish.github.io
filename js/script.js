@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const gridHeight = 50;
     const gridWidth = 100;
     const gridItems = []
-    const gridValues = Array.from({ length: gridHeight }, (_, rowIndex) => 
+    let gridValues = Array.from({ length: gridHeight }, (_, rowIndex) => 
         Array.from({ length: gridWidth }, (_, colIndex) =>
-            (rowIndex + colIndex) % 2
+            (rowIndex * 2 + colIndex + Math.floor((Math.random() * 4))) % 4
         )
     );
 
@@ -21,31 +21,52 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // switch colors around
-    function switchColors() {
-        const numToSwitch = 3;
-        for (let i = 0; i < numToSwitch; i++) {
-            const id = Math.round(Math.random() * gridHeight * gridWidth)
-            const color = gridItems[id].style.backgroundColor;
-            gridItems[id].style.backgroundColor = color === 'rgb(221, 221, 221)' ? '#223388' : '#dddddd';
-        }
-    }
-
     // cgol iterate
     function iterate() {
-        // declare a new, blank array of the proper size
-        // nested loop through the array
-            // check the neighborhood
-            // given the neighborhood and current state, determine new state
-            // place new state into new array at proper row, col
-        // 2 options:
-            // somehow 'return' the new array to be used
-            // point the old array name toward the new one using assignment
-        // finally, make sure colors update 
+        console.log(gridValues[0][0] + ', ' + gridValues[0][1]);
+        const newGrid = Array.from({ length: gridValues.length}, () => Array(gridValues[0].length).fill(0));
+        // loop through the whole previous array, building the new array along the way
+        for (let i = 0; i < newGrid.length; i++) {
+            for (let j = 0; j < newGrid[0].length; j++) {
+                neighbors = neighborhood(i, j);
+                if (gridValues[i][j] === 1) {  // stay alive if 2 or 3 neighbors
+                    if (neighbors === 2 || neighbors === 3) newGrid[i][j] = 1;
+                } else {  // come alive if exactly 3 neighbors
+                    if (neighbors === 3) newGrid[i][j] = 1;
+                }
+            }
+        }
+        gridValues = newGrid;  // 'active' grid points toward newly evaluated grid
+        updateColors();
+    }
+
+    function neighborhood(row, col) {
+        let neighbors = 0;
+        for (let i = row - 1; i < row + 2; i++) {
+            for (let j = col - 1; j < col + 2; j++) {
+                if (i >= 0 && j >= 0 && i < gridValues.length && j < gridValues[0].length) {  // boundary check
+                    if (!(i === row & j === col) && gridValues[i][j] === 1)  // not counting self
+                    neighbors ++;
+                }
+            }
+        }
+        return neighbors;
+    }
+
+    function updateColors() {
+        for (let index = 0; index < gridItems.length; index++) {
+            const i = Math.floor(index / gridWidth);
+            const j = index % gridWidth;
+            if (gridValues[i][j] === 1) {
+                gridItems[index].style.backgroundColor = '#aaaaaa';
+            } else {
+                gridItems[index].style.backgroundColor = '#223388';
+            }
+        }
     }
 
 
     // Set interval to switch colors every second
-    setInterval(switchColors, 100);
+    setInterval(iterate, 200);
 
 });
