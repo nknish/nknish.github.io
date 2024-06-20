@@ -1,3 +1,23 @@
+#cgol {
+    background-color: #001035;
+}
+
+#grid-container {
+    display: grid;
+    grid-template-columns: repeat(10, 50px);
+    grid-template-rows: repeat(10, 50px);
+    padding: 10px;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-item {
+    width: 50px;
+    height: 50px;
+    background-color: #103074;
+}
+
 body {
     text-align: center;
     background-color: #103074;
