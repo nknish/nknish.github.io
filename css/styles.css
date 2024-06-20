@@ -17,6 +17,7 @@
     height: 10px;
     background-color: #223388;
     border-radius: 1px;
+    transition: background-color 0.2s ease;
 }
 
 body {
