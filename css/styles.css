@@ -4,20 +4,18 @@
 
 #grid-container {
     display: grid;
-    grid-template-columns: repeat(100, 10px);
-    grid-template-rows: repeat(50, 10px);
+    grid-template-columns: repeat(200, 5px);
+    grid-template-rows: repeat(100, 5px);
     padding: 10px;
-    gap: 1px;
     justify-content: center;
     align-items: center;
 }
 
 .grid-item {
-    width: 10px;
-    height: 10px;
+    width: 5px;
+    height: 5px;
     background-color: #223388;
-    border-radius: 1px;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.15s ease;
 }
 
 body {
