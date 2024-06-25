@@ -61,7 +61,7 @@
         .grid-item {
             width: 5px;
             height: 5px;
-            background-color: #223388;
+            background-color: #103074;
             transition: background-color 400ms ease-in;
         }
     }
