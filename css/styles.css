@@ -51,18 +51,18 @@
     main {
         #grid-container {
             display: grid;
-            grid-template-columns: repeat(200, 5px);
-            grid-template-rows: repeat(100, 5px);
+            grid-template-columns: repeat(100, 10px);
+            grid-template-rows: repeat(50, 10px);
             padding: 10px;
             justify-content: center;
             align-items: center;
         }
 
         .grid-item {
-            width: 5px;
-            height: 5px;
+            width: 10px;
+            height: 10px;
             background-color: #103074;
-            transition: background-color 400ms ease-in;
+            /* transition: background-color 400ms ease-in; */
         }
     }
 }

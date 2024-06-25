@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", function() {
     const gridContainer = document.getElementById('grid-container');  // html container
-    const gridHeight = 100;
-    const gridWidth = 200;
+    const height = 50;
+    const width = height * 2;
     const gridItems = [];  // list of html items (each one is a tile)
     const brightColors = ['#6cbc4d', '#d4e056', '#f18244', '#e23f51', '#584796', '#3b7bbd'];  // for 'N' 
     let countdown = 10;  // how many iterations before the N collapses into surroundings
 
     // intialize randomized grid
-    let gridValues = Array.from(Array(gridHeight), () => new Array(gridWidth).fill(0));
+    let gridValues = Array.from(Array(height), () => new Array(width).fill(0));
     for (let i = 0; i < gridValues.length; i++) {
         for (let j = 0; j < gridValues[i].length; j++) {
             gridValues[i][j] = Math.round(Math.random()-0.25);  // approx. 1/4 chance of life?
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
         dataArray.forEach(row => {
             for (let index = 0; index < row.length; index++) {
                 // puts integer equivalent of each char into the grid values
-                gridValues[counter+40][index+89] = parseInt(row.charAt(index));
+                gridValues[counter+16][index+41] = parseInt(row.charAt(index));
             }
             counter ++;
         });
@@ -49,13 +49,22 @@ document.addEventListener("DOMContentLoaded", function() {
         console.error('There has been a problem with your fetch operation:', error);
     });
 
+    // check if a position (i, j) is within 10 spaces of the center
+    function isInCenter(i, j, width, height) {
+        leftBound = width / 2 - 10;
+        rightBound = width / 2 + 11;
+        topBound = height / 2 - 10;
+        bottomBound = height / 2 + 11;
+        return i > topBound && i < bottomBound && j > leftBound && j < rightBound;
+    }
+
     // after preparing array of values, make the actual grid from those values
     function createGrid() {
-        for (let i =0; i < gridHeight; i++) {
-            for (let j = 0; j < gridWidth; j++ ) {
+        for (let i =0; i < height; i++) {
+            for (let j = 0; j < width; j++ ) {
                 const gridItem = document.createElement('div');  // create a div for the item
                 gridItem.classList.add('grid-item');  // add to css class to apply styles
-                if (i > 40 && i < 59 && j > 89 && j < 108) {  // if it's in the special box
+                if (isInCenter(i, j, width, height)) {  // if it's in the special box
                     if (gridValues[i][j] === 1) {
                         // one of the bright colors from the list
                         gridItem.style.backgroundColor = brightColors[Math.round(Math.random()*(brightColors.length-1))];
@@ -80,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function() {
         for (let i = 0; i < newGrid.length; i++) {
             for (let j = 0; j < newGrid[0].length; j++) {
                 neighbors = neighborhood(i, j);
-                if (countdown > 0 && i > 40 && i < 59 && j > 89 && j < 108) {
+                if (countdown > 0 && isInCenter(i, j, width, height)) {
                     // the special middle section doesn't iterate till countdown ends
                     newGrid[i][j] = gridValues[i][j];
                 } else if (gridValues[i][j] === 1) {  // stay alive if 2 or 3 neighbors
@@ -118,9 +127,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 floor division and modulus are needed
                 to enable smooth interaction between them
             */
-            const i = Math.floor(index / gridWidth);
-            const j = index % gridWidth;
-            if (countdown > 0 && i > 40 && i < 59 && j > 89 && j < 108) {
+            const i = Math.floor(index / width);
+            const j = index % width;
+            if (countdown > 0 && isInCenter(i, j, width, height)) {
                 // doesn't mess with the fun colors until the countdown ends
             } else if (gridValues[i][j] === 1) {
                 gridItems[index].style.backgroundColor = '#aaaaaa';  // 'on'
