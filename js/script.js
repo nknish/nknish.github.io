@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
                 } else {
                     // set color based on alive or dead
-                    gridItem.style.backgroundColor = gridValues[i][j] === 1 ? '#aaaaaa' : '#223388';
+                    gridItem.style.backgroundColor = gridValues[i][j] === 1 ? '#aaaaaa' : '#103074';
                 }
                 gridContainer.appendChild(gridItem);  // add item to the container
                 gridItems.push(gridItem);  // add item to the list of items
@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function() {
             } else if (gridValues[i][j] === 1) {
                 gridItems[index].style.backgroundColor = '#aaaaaa';  // 'on'
             } else {
-                gridItems[index].style.backgroundColor = '#223388';  // 'off'
+                gridItems[index].style.backgroundColor = '#103074';  // 'off'
             }
         }
     }
