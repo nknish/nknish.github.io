@@ -3,23 +3,23 @@
     text-align: center;
 
     header {
-        h1 {
-           color: #ffffff; 
-           font-family: 'Courier New', Courier, monospace;
-           font-size: 39px;
-           margin-top: 25px;
-           margin-bottom: 5px;
+        #name {
+            width: 25%;
+            height: 25%;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            padding: 7px;
         }
 
         #social-icons {
             .social-icon {
                 width: 30px;
                 height: 30px;
-                image-rendering: pixelated;
                 margin: 3px;
-                margin-top: 5px;
-                opacity: 0.4;
+                padding: 3px;
+                transition: filter 350ms ease-in-out;
                 filter: blur(2px);
+                opacity: 0.5;
             }
             
             .social-icon:hover {
