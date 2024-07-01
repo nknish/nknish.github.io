@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+  }
+  
 #main-page {
     background-color: #103074;
     text-align: center;
@@ -56,13 +60,67 @@
             padding: 10px;
             justify-content: center;
             align-items: center;
+            margin-bottom: 20px;
         }
 
         .grid-item {
             width: 10px;
             height: 10px;
             background-color: #103074;
-            /* transition: background-color 400ms ease-in; */
+        }
+
+        #scroll-button {
+            display: inline-block;
+            padding: 20px 410px;
+            letter-spacing: 4px;
+            border: 3px dashed #aaaaaa;
+            cursor: pointer;
+            transition: background-color 300ms ease-in-out;
+
+            img {
+                max-height: 25px;
+            }
+        }
+
+        #scroll-button:hover {
+            cursor: pointer;
+            background-color: #102769;
+        }
+
+        .body-h1 {
+            color: #aaaaaa;
+            margin: 20px;
+            font-family: "Courier New", 'Courier New', Courier, monospace;
+        }
+
+        .body-text {
+            color: #8080c0;
+            font-size: large;
+            line-height: 25px;
+            font-family: "Courier New", 'Courier New', Courier, monospace;
+            margin-bottom: 40px;
+            margin-left: 80px;
+            margin-right: 80px;
+        }
+    }
+
+    footer {
+        #scroll-button {
+            display: inline-block;
+            padding: 20px 410px;
+            letter-spacing: 4px;
+            border: 3px dashed #aaaaaa;
+            cursor: pointer;
+            transition: background-color 300ms ease-in-out;
+
+            img {
+                max-height: 25px;
+            }
+        }
+
+        #scroll-button:hover {
+            cursor: pointer;
+            background-color: #102769;
         }
     }
 }
