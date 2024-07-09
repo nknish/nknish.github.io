@@ -151,40 +151,38 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     }
-
-    function popTile() {
-        /*
-        the calculation of 'rows' below ensures that sometimes, none are
-        cleared which makes the clearing 'jerky' to fit the vibe. i may
-        change it because it looks like unintentional performance issues
-        */
-        const rows = Math.round(Math.random() - 0.1) * 4
-
-        for (let i = 0; i < rows * 100; i++) {  // each row is 100 tiles, hence (rows * 100)
-            if (gridItems.length > 0) {
-                gridItems.pop().remove();
-            } else {
-                clearInterval(poppingInterval);  // stop popping
-                proceedFinish();  // occurs after all tiles have been popped
-            }
-        }
-
-        let h = Math.floor(gridItems.length / 10);
-        gridContainer.style.height = `${h}px`;
-    }
-
+    
     function proceed() {  // when the 'proceed' button is clicked
-        const proceeder = document.getElementById('scroll-button')
-
+        const proceeder = document.getElementById('scroll-button');
         proceeder.removeEventListener('click', proceed);  // doesn't let it happen again
-
+        proceeder.style.boxShadow = 'none';
         clearInterval(iterationInterval);  // stops all cgol related activities
         let poppingInterval = setInterval(popTile, 50);  // starts removing rows of tiles
+        const body = document.getElementById('body');
+        body.style.display = 'block';
+
+        function popTile() {
+            /*
+            the calculation of 'rows' below ensures that sometimes, none are
+            cleared which makes the clearing 'jerky' to fit the vibe. i may
+            change it because it looks like unintentional performance issues
+            */
+            const rows = Math.round(Math.random() - 0.1) * 4;
+    
+            for (let i = 0; i < rows * 100; i++) {  // each row is 100 tiles, hence (rows * 100)
+                if (gridItems.length > 0) {
+                    gridItems.pop().remove();
+                } else {
+                    clearInterval(poppingInterval);  // stop popping
+                    proceeder.style.display = 'none';
+                }
+            }
+    
+            let h = Math.floor(gridItems.length / 10);
+            gridContainer.style.height = `${h}px`;
+        }
     }
 
-    function proceedFinish() {
-
-    }
 
     // Set interval to iterate 5x per second
     let iterationInterval = setInterval(iterate, 200);
