@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const brightColors = ['#6cbc4d', '#d4e056', '#f18244', '#e23f51', '#584796', '#3b7bbd'];  // for 'N' 
     let countdown = 10;  // how many iterations before the N collapses into surroundings
 
+
     // intialize randomized grid
     let gridValues = Array.from(Array(height), () => new Array(width).fill(0));
     for (let i = 0; i < gridValues.length; i++) {
@@ -34,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
             counter ++;
         });
-
 
         /*
             putting this createGrid() function, instead of just continuing
@@ -102,6 +102,18 @@ document.addEventListener("DOMContentLoaded", function() {
         if (countdown > 0) {
             countdown --;  // decrement countdown
         }
+        if (countdown === 0) {
+            const proceeder = document.getElementById('scroll-button')
+            /*
+                proceeder.addEventListener('click', proceed);
+                IMPORTANT!!! this line above being commented out means that
+                none of the 'proceed' related stuff will happen, making
+                the button useless. this shouldn't be commented out once
+                the button's functionality is ready to implement.
+             */
+            proceeder.setAttribute('href', '#proceed');
+            countdown --;
+        }
         gridValues = newGrid;  // 'active' grid points toward newly evaluated grid
         updateColors();
     }
@@ -139,8 +151,41 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
+    function popTile() {
+        /*
+        the calculation of 'rows' below ensures that sometimes, none are
+        cleared which makes the clearing 'jerky' to fit the vibe. i may
+        change it because it looks like unintentional performance issues
+        */
+        const rows = Math.round(Math.random() - 0.1) * 4
+
+        for (let i = 0; i < rows * 100; i++) {  // each row is 100 tiles, hence (rows * 100)
+            if (gridItems.length > 0) {
+                gridItems.pop().remove();
+            } else {
+                clearInterval(poppingInterval);  // stop popping
+                proceedFinish();  // occurs after all tiles have been popped
+            }
+        }
+
+        let h = Math.floor(gridItems.length / 10);
+        gridContainer.style.height = `${h}px`;
+    }
+
+    function proceed() {  // when the 'proceed' button is clicked
+        const proceeder = document.getElementById('scroll-button')
+
+        proceeder.removeEventListener('click', proceed);  // doesn't let it happen again
+
+        clearInterval(iterationInterval);  // stops all cgol related activities
+        let poppingInterval = setInterval(popTile, 50);  // starts removing rows of tiles
+    }
+
+    function proceedFinish() {
+
+    }
 
     // Set interval to iterate 5x per second
-    setInterval(iterate, 200);
+    let iterationInterval = setInterval(iterate, 200);
 
 });

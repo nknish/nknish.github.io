@@ -21,7 +21,6 @@ html {
                 margin: 3px;
                 padding: 5px;
                 user-select: none;
-                transition: box-shadow 350ms ease-in-out;
             }
             
             .social-icon:hover {
@@ -29,31 +28,12 @@ html {
                 cursor: pointer;
             }
         }
-    }
-
-    nav {
-        /* padding: 10px;
-        position: fixed;
-        top: 0;
-        width: 100%; */
-
-        p {
-            color: #ffffff;
-            font-family: "Courier New", 'Courier New', Courier, monospace;
-    
-        }
-          
-        a {
-            color: #ce99ff;
-            font-family: monospace;
-        }
-    }
-
-    
+    }    
 
     main {
         #grid-container {
             display: grid;
+            /* height: 500px; */
             grid-template-columns: repeat(100, 10px);
             grid-template-rows: repeat(50, 10px);
             padding: 10px;
