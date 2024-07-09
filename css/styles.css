@@ -17,7 +17,7 @@ html {
 
         #social-icons {
             .social-icon {
-                height: 20px;
+                height: 16px;
                 margin: 3px;
                 padding: 5px;
                 user-select: none;
@@ -50,11 +50,9 @@ html {
 
         #scroll-button {
             display: inline-block;
-            padding: 20px 410px;
-            letter-spacing: 4px;
-            border: 3px dashed #aaaaaa;
+            margin: 7px;
+            padding: 10px;
             cursor: pointer;
-            transition: background-color 300ms ease-in-out;
             
             img {
                 user-select: none;
@@ -63,8 +61,7 @@ html {
         }
 
         #scroll-button:hover {
-            cursor: pointer;
-            background-color: #102769;
+            box-shadow: 0px 0px 0px 6px #222244;
         }
 
         .body-h1 {
@@ -81,26 +78,6 @@ html {
             margin-bottom: 40px;
             margin-left: 80px;
             margin-right: 80px;
-        }
-    }
-
-    footer {
-        #scroll-button {
-            display: inline-block;
-            padding: 20px 410px;
-            letter-spacing: 4px;
-            border: 3px dashed #aaaaaa;
-            cursor: pointer;
-            transition: background-color 300ms ease-in-out;
-
-            img {
-                max-height: 25px;
-            }
-        }
-
-        #scroll-button:hover {
-            cursor: pointer;
-            background-color: #102769;
         }
     }
 }

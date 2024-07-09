@@ -103,6 +103,7 @@ document.addEventListener("DOMContentLoaded", function() {
             countdown --;  // decrement countdown
         }
         if (countdown === 0) {
+            // after countdown, enable proceeding down the site
             const proceeder = document.getElementById('scroll-button')
             /*
                 proceeder.addEventListener('click', proceed);
