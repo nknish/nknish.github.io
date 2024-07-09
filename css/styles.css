@@ -17,17 +17,16 @@ html {
 
         #social-icons {
             .social-icon {
-                width: 30px;
-                height: 30px;
+                height: 20px;
                 margin: 3px;
-                padding: 3px;
-                transition: filter 350ms ease-in-out;
-                filter: blur(2px);
-                opacity: 0.5;
+                padding: 5px;
+                user-select: none;
+                transition: box-shadow 350ms ease-in-out;
             }
             
             .social-icon:hover {
-                filter: blur(0px);
+                box-shadow: 0px 0px 0px 4px #222244;
+                cursor: pointer;
             }
         }
     }
@@ -76,8 +75,9 @@ html {
             border: 3px dashed #aaaaaa;
             cursor: pointer;
             transition: background-color 300ms ease-in-out;
-
+            
             img {
+                user-select: none;
                 max-height: 25px;
             }
         }
