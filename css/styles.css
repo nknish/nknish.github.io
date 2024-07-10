@@ -121,14 +121,23 @@ html {
           color: #d19fa9;
         }
 
-        #name-text {
+        strong.special {
           font-weight: bolder;
           font-style: oblique;
+          color: #ca5ab4;
         }
 
         a {
           font-weight: bold;
           color: #59cafa;
+        }
+
+        #wikipedia {
+          font-weight: normal;
+          font-style: normal;
+          text-decoration: none;
+          cursor: help;
+          color: #8080c0;
         }
       }
     }
