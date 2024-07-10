@@ -1,5 +1,5 @@
-### making myself a website!
+### Noah's personal website — check it out at [https://nknish.github.io](https://nknish.github.io)!
 
-#### check it out at [https://nknish.github.io](https://nknish.github.io)
-
-font credit: [DatCub](https://www.dafont.com/datcub.font) by GGBot
+To do:
+* prevent nav bar and scroll bar from overlapping
+* mobile compatibility?
