@@ -1,5 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
+  /*
+   *                          !!!WARNING!!!
+   *
+   *    the following animation is based on conway's game of life,
+   *    also known as CGOL. if you proceed, you may learn something,
+   *    or even have fun. read ahead at your own risk.
+   *
+   *        —noah
+   */
+
   const gridContainer = document.getElementById("grid-container"); // html container
+  const proceeder = document.getElementById("scroll-button");
+  proceeder.style.opacity = "0";
   const height = 50;
   const width = height * 2;
   const gridItems = []; // list of html items (each one is a tile)
@@ -84,7 +96,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 Math.round(Math.random() * (brightColors.length - 1))
               ];
           } else {
-            // should probably pick a better dark color
             gridItem.style.backgroundColor = "#222244";
           }
         } else {
@@ -124,7 +135,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     if (countdown === 0) {
       // after countdown, enable proceeding down the site
-      const proceeder = document.getElementById("scroll-button");
 
       //   proceeder.addEventListener("click", proceed);
       /*
@@ -179,11 +189,21 @@ document.addEventListener("DOMContentLoaded", function () {
         gridItems[index].style.backgroundColor = "#103074"; // 'off'
       }
     }
+
+    // fade the scroll button into view (including full opacity when countdown < 0)
+    if (countdown % 3 === 0 || countdown < 0) {
+      document.getElementById("scroll-button").style.opacity = `${
+        1 - countdown * 0.1
+      }`;
+    }
   }
+
+  /*
+   *    the code below is for when the 'proceed' button is clicked
+   */
 
   function proceed() {
     // when the 'proceed' button is clicked
-    const proceeder = document.getElementById("scroll-button");
     proceeder.removeEventListener("click", proceed); // doesn't let it happen again
     proceeder.style.boxShadow = "none";
     clearInterval(iterationInterval); // stops all cgol related activities
@@ -207,6 +227,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Set interval to iterate 5x per second
+  // Set interval to iterate 5x per second (this line is stil for CGOL)
   let iterationInterval = setInterval(iterate, 200);
 });
