@@ -5,141 +5,156 @@ html {
 #main-page {
   background-color: #103074;
   text-align: center;
+}
 
-  header {
-    position: fixed;
-    top: 5px;
-    margin: 2px;
-    max-height: 120px;
-    background-color: #103074;
-    border: 8px groove #222244;
-    user-select: none;
+header {
+  position: fixed;
+  top: 5px;
+  margin: 2px;
+  max-height: 120px;
+  background-color: #103074;
+  border: 8px groove #222244;
+  user-select: none;
+}
 
-    #name {
-      width: 25%;
-      height: 25%;
-      margin-top: 12px;
-      margin-bottom: 0;
-      padding: 14px;
-    }
+#name {
+  width: 25%;
+  height: 25%;
+  margin-top: 12px;
+  margin-bottom: 0;
+  padding: 14px;
+}
 
-    #name:hover {
-      border: 8px groove #222244;
-      filter: contrast(40%);
-      background-color: #ffffff;
-      padding: 6px;
-    }
+#name:hover {
+  border: 8px groove #222244;
+  filter: contrast(40%);
+  background-color: #ffffff;
+  padding: 6px;
+}
 
-    #social-icons {
-      .social-icon {
-        height: 16px;
-        margin: 1px;
-        padding: 10px;
-      }
+.social-icon {
+  height: 16px;
+  margin: 1px;
+  padding: 10px;
+}
 
-      .social-icon:hover {
-        border: 6px groove black;
-        padding: 4px;
-        cursor: pointer;
-      }
-    }
-  }
+.social-icon:hover {
+  border: 6px groove black;
+  padding: 4px;
+  cursor: pointer;
+}
 
-  main {
-    margin-top: 140px;
+main {
+  margin-top: 140px;
+}
 
-    #grid-container {
-      display: grid;
-      grid-template-columns: repeat(100, 10px);
-      grid-template-rows: repeat(50, 10px);
-      padding: 10px;
-      justify-content: center;
-      align-items: center;
-    }
+#grid-container {
+  display: grid;
+  grid-template-columns: repeat(100, 10px);
+  grid-template-rows: repeat(50, 10px);
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+}
 
-    .grid-item {
-      width: 10px;
-      height: 10px;
-      background-color: #103074;
-    }
+.grid-item {
+  width: 10px;
+  height: 10px;
+  background-color: #103074;
+}
 
-    #scroll-button {
-      display: inline-block;
-      margin: 7px;
-      padding: 16px;
-      cursor: pointer;
+#scroll-button {
+  display: inline-block;
+  margin: 7px;
+  padding: 16px;
+  cursor: pointer;
+}
 
-      img {
-        user-select: none;
-        max-height: 25px;
-      }
-    }
+#scroll-label {
+  user-select: none;
+  max-height: 25px;
+}
 
-    #scroll-button:hover {
-      border: 7px groove black;
-      padding: 9px;
-    }
+#scroll-button:hover {
+  border: 7px groove black;
+  padding: 9px;
+}
 
-    #body {
-      display: none; /* hidden until the 'proceed' button is clicked */
+#body {
+  display: none; /* hidden until the 'proceed' button is clicked */
+}
 
-      .body-h1 {
-        color: #aaaaaa;
-        margin: 0;
-        padding: 0;
-        font-family: "Courier New", "Courier New", Courier, monospace;
+.body-h1 {
+  color: #aaaaaa;
+  margin: 0;
+  padding: 0;
+  font-family: "Courier New", "Courier New", Courier, monospace;
+}
 
-        img {
-          height: 25px;
-          margin: 4px;
-          padding: 18px;
-        }
+.heading-label {
+  height: 25px;
+  margin: 4px;
+  padding: 18px;
+}
 
-        img:hover {
-          border: 8px groove #222244;
-          padding: 10px;
-        }
-      }
+.heading-label:hover {
+  border: 8px groove #222244;
+  padding: 10px;
+}
 
-      .body-text {
-        color: #8080c0;
-        font-size: large;
-        line-height: 30px;
-        font-family: monospace;
-        margin-top: 0px;
-        margin-bottom: 10px;
-        margin-left: 80px;
-        margin-right: 80px;
+.body-text {
+  color: #8080c0;
+  font-size: large;
+  line-height: 30px;
+  font-family: monospace;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  margin-left: 80px;
+  margin-right: 80px;
+}
 
-        em {
-          color: #b9b9b9;
-          font-weight: bold;
-          font-style: normal;
-        }
+.body-text em {
+  color: #b9b9b9;
+  font-weight: bold;
+  font-style: normal;
+}
 
-        strong {
-          color: #d19fa9;
-        }
+.body-text strong {
+  color: #d19fa9;
+}
 
-        strong.special {
-          font-weight: bolder;
-          font-style: oblique;
-          color: #ca5ab4;
-        }
+.body-text strong.special {
+  font-weight: bolder;
+  font-style: oblique;
+  color: #ca5ab4;
+}
 
-        a {
-          font-weight: bold;
-          color: #59cafa;
-        }
+.body-text a {
+  font-weight: bold;
+  color: #59cafa;
+}
 
-        #wikipedia {
-          font-weight: normal;
-          font-style: normal;
-          text-decoration: none;
-          cursor: help;
-          color: #8080c0;
-        }
-      }
-    }
-  }
+.body-text #wikipedia {
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  cursor: help;
+  color: #8080c0;
+}
+
+#unscroll-button {
+  display: inline-block;
+  margin: 7px;
+  padding: 16px;
+  cursor: pointer;
+}
+
+#unscroll-label {
+  user-select: none;
+  max-height: 25px;
+}
+
+#unscroll-button:hover {
+  border: 7px groove black;
+  padding: 9px;
 }
