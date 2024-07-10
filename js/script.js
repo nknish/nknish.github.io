@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // after countdown, enable proceeding down the site
       const proceeder = document.getElementById("scroll-button");
 
-      // proceeder.addEventListener('click', proceed);
+      //   proceeder.addEventListener("click", proceed);
       /*
                 IMPORTANT!!! this line above being commented out means that
                 none of the 'proceed' related stuff will happen, making
@@ -187,20 +187,13 @@ document.addEventListener("DOMContentLoaded", function () {
     proceeder.removeEventListener("click", proceed); // doesn't let it happen again
     proceeder.style.boxShadow = "none";
     clearInterval(iterationInterval); // stops all cgol related activities
-    let poppingInterval = setInterval(popTile, 50); // starts removing rows of tiles
+    let poppingInterval = setInterval(popTile, 150); // starts removing rows of tiles
     const body = document.getElementById("body");
     body.style.display = "block";
 
     function popTile() {
-      /*
-            the calculation of 'rows' below ensures that sometimes, none are
-            cleared which makes the clearing 'jerky' to fit the vibe. i may
-            change it because it looks like unintentional performance issues
-            */
-      const rows = Math.round(Math.random() - 0.1) * 4;
-
-      for (let i = 0; i < rows * 100; i++) {
-        // each row is 100 tiles, hence (rows * 100)
+      // 6 rows cleared per interval (which should be 150 ms)
+      for (let i = 0; i < 600; i++) {
         if (gridItems.length > 0) {
           gridItems.pop().remove();
         } else {

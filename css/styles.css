@@ -13,7 +13,6 @@ html {
     max-height: 120px;
     background-color: #103074;
     border: 8px groove #222244;
-    /* box-shadow: 0px 0px 20px 0px #222244; */
     user-select: none;
 
     #name {
@@ -25,7 +24,9 @@ html {
     }
 
     #name:hover {
-      border: 8px groove;
+      border: 8px groove #222244;
+      filter: contrast(40%);
+      background-color: #ffffff;
       padding: 6px;
     }
 
@@ -37,7 +38,7 @@ html {
       }
 
       .social-icon:hover {
-        border: 6px groove #222244;
+        border: 6px groove black;
         padding: 4px;
         cursor: pointer;
       }
@@ -75,7 +76,7 @@ html {
     }
 
     #scroll-button:hover {
-      border: 7px groove #222244;
+      border: 7px groove black;
       padding: 9px;
     }
 
@@ -84,18 +85,51 @@ html {
 
       .body-h1 {
         color: #aaaaaa;
-        margin: 20px;
+        margin: 0;
+        padding: 0;
         font-family: "Courier New", "Courier New", Courier, monospace;
+
+        img {
+          height: 25px;
+          margin: 4px;
+          padding: 18px;
+        }
+
+        img:hover {
+          border: 8px groove #222244;
+          padding: 10px;
+        }
       }
 
       .body-text {
         color: #8080c0;
         font-size: large;
-        line-height: 25px;
-        font-family: "Courier New", "Courier New", Courier, monospace;
-        margin-bottom: 40px;
+        line-height: 30px;
+        font-family: monospace;
+        margin-top: 0px;
+        margin-bottom: 10px;
         margin-left: 80px;
         margin-right: 80px;
+
+        em {
+          color: #b9b9b9;
+          font-weight: bold;
+          font-style: normal;
+        }
+
+        strong {
+          color: #d19fa9;
+        }
+
+        #name-text {
+          font-weight: bolder;
+          font-style: oblique;
+        }
+
+        a {
+          font-weight: bold;
+          color: #59cafa;
+        }
       }
     }
   }
