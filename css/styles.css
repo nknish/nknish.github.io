@@ -11,6 +11,7 @@ header {
   position: fixed;
   top: 5px;
   margin: 2px;
+  margin-right: 8px;
   max-height: 120px;
   background-color: #103074;
   border: 8px groove #222244;
@@ -109,8 +110,8 @@ main {
   font-family: monospace;
   margin-top: 0px;
   margin-bottom: 10px;
-  margin-left: 80px;
-  margin-right: 80px;
+  margin-left: 13%;
+  margin-right: 13%;
 }
 
 .body-text em {
