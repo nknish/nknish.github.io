@@ -135,15 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     if (countdown === 0) {
       // after countdown, enable proceeding down the site
-
-      //   proceeder.addEventListener("click", proceed);
-      /*
-                IMPORTANT!!! this line above being commented out means that
-                none of the 'proceed' related stuff will happen, making
-                the button useless. this shouldn't be commented out once
-                the button's functionality is ready to implement.
-             */
-
+      proceeder.addEventListener("click", proceed); // comment this line out to prevent proceed
       proceeder.setAttribute("href", "#proceed");
       countdown--;
     }
