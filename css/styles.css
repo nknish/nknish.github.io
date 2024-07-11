@@ -7,15 +7,16 @@ html {
   text-align: center;
 }
 
+/* top bar with title and social links. stays on top */
 header {
   position: fixed;
   top: 5px;
   margin: 2px;
-  margin-right: 8px;
+  margin-right: 8px; /* larger than margin-left to avoid overlap with scroll bar */
   max-height: 120px;
   background-color: #103074;
   border: 8px groove #222244;
-  user-select: none;
+  user-select: none; /* avoids text selection from images because it's spotty w/ the font */
 }
 
 #name {
@@ -46,11 +47,11 @@ header {
 }
 
 main {
-  margin-top: 140px;
+  margin-top: 140px; /* avoids overlap with header bar */
 }
 
 #grid-container {
-  display: grid;
+  display: grid; /* contains all the cgol cells */
   grid-template-columns: repeat(100, 10px);
   grid-template-rows: repeat(50, 10px);
   padding: 10px;
@@ -61,10 +62,11 @@ main {
 .grid-item {
   width: 10px;
   height: 10px;
-  background-color: #103074;
+  background-color: #103074; /* 'dead' color for each cgol cell */
 }
 
 #scroll-button {
+  /* aka 'proceed' */
   display: inline-block;
   margin: 7px;
   padding: 16px;
@@ -89,10 +91,10 @@ main {
   color: #aaaaaa;
   margin: 0;
   padding: 0;
-  font-family: "Courier New", "Courier New", Courier, monospace;
 }
 
 .heading-label {
+  /* image equivalent to h1 */
   height: 25px;
   margin: 4px;
   padding: 18px;
@@ -106,36 +108,41 @@ main {
 .body-text {
   color: #8080c0;
   font-size: large;
-  line-height: 30px;
+  line-height: 30px; /* nice and spacious */
   font-family: monospace;
   margin-top: 0px;
-  margin-bottom: 10px;
+  margin-bottom: 10px; /* break after paragraph */
   margin-left: 13%;
   margin-right: 13%;
 }
 
 .body-text em {
+  /* emphasized body text (it isn't italic) */
   color: #b9b9b9;
   font-weight: bold;
   font-style: normal;
 }
 
 .body-text strong {
+  /* extra-emphasized bold */
   color: #d19fa9;
 }
 
 .body-text strong.special {
+  /* one key phrase per section */
   font-weight: bolder;
   font-style: oblique;
   color: #ca5ab4;
 }
 
 .body-text a {
+  /* super important links! */
   font-weight: bold;
   color: #59cafa;
 }
 
 .body-text #wikipedia {
+  /* random wikipedia article easter egg (shhhhh) */
   font-weight: normal;
   font-style: normal;
   text-decoration: none;
@@ -144,6 +151,7 @@ main {
 }
 
 #unscroll-button {
+  /* aka 'back to top' */
   display: inline-block;
   margin: 7px;
   padding: 16px;
