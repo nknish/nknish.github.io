@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   /*
    *                          !!!WARNING!!!
    *
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let countdown = 10; // how many iterations before the N collapses into surroundings
 
   // intialize randomized grid
-  let gridValues = Array.from(Array(height), () => new Array(width).fill(0));
+  let gridValues = Array.from({ length: height }, () => Array(width).fill(0));
   for (let i = 0; i < gridValues.length; i++) {
     for (let j = 0; j < gridValues[i].length; j++) {
       gridValues[i][j] = Math.round(Math.random() - 0.25); // approx. 1/4 chance of life?
@@ -111,9 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // cgol iterate
   function iterate() {
-    const newGrid = Array.from({ length: gridValues.length }, () =>
-      Array(gridValues[0].length).fill(0)
-    );
+    const newGrid = gridValues.map((x) => x.map(() => 0));
     // loop through the whole previous array, building the new array along the way
     for (let i = 0; i < newGrid.length; i++) {
       for (let j = 0; j < newGrid[0].length; j++) {
