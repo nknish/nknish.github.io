@@ -107,8 +107,8 @@ main {
 
 .body-text {
   color: #8080c0;
-  font-size: large;
-  line-height: 30px; /* nice and spacious */
+  font-size: x-large;
+  line-height: 38px; /* nice and spacious */
   font-family: monospace;
   margin-top: 0px;
   margin-bottom: 10px; /* break after paragraph */
